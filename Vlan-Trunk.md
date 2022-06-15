@@ -1,6 +1,7 @@
 # VLANs & Trunking
 ### Create VLAN
-In global configuration <code>vlan <em>vlan-id</em></code>  
+In global configuration  
+<code>vlan <em>vlan-id</em></code>  
 In VLAN submode (max. 32 characters for the name) <code>name <em>vlanname</em></code>  
 VLAN is not created until you exit VLAN ID.  
 **Verification**  
