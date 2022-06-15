@@ -1,6 +1,6 @@
 # Diagnostic commands
 ### General
-**Arp table**
+**Arp table**  
 <code>show ip arp [<em>mac-address</em> | <em>ip-address</em> | vlan <em>vlan-id</em> | <em>interface-id</em>]</code>  
 
 ### Layer 2
