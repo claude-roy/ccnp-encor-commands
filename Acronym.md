@@ -1,4 +1,4 @@
-# Acronym used in the course
+# Acronym used
 ARP Address Resolution Protocol  
 ASIC application-specific integrated circuits  
 CAM content addressable memory  
