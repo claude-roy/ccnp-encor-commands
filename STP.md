@@ -107,4 +107,4 @@ In interface configuration mode
 <code>show spanning-tree mst configuration</code>  
 <code>show spanning-tree mst</code>  
 <code>show spanning-tree mst [<em>instance-number</em>]</code>
-<code>show spanning-tree mst interface [<em>interface-id</em>]</code>
+<code>show spanning-tree mst interface [<em>interface-id</em>]</code>  
