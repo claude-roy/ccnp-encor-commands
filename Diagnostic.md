@@ -12,3 +12,4 @@ In global configuration
 <code>show interfaces switchport</code>  
 <code>show interfaces <em>interface-id</em> switchport</code>  
 <code>show interface status</code>
+
