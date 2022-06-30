@@ -17,4 +17,4 @@ In interface subcommand
 <code>switchport trunk native vlan <em>vlan-id</em></code>  
 <code>switchport trunk allowed vlan {<em>vlan-id</em> | all | none| add <em>vlan-ids</em> | remove <em>vlan-ids</em> | exept <em>vlans-ids</em>}</code>  
 **Trunk verification**  
-<code>show interface trunk</code>
+<code>show interface trunk</code>  
