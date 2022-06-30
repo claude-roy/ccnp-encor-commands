@@ -4,7 +4,7 @@
 * **PVST**, Per-VLAN Spanning-Tree
 * **PVST+**, Per-VLAN Spanning-Tree Plus
 * **802.1w RSTP**, Rapid Spanning Tree Protocol
-* **802.S MST**, Multiple Spanning Tree Protocol  
+* **802.1S MST**, Multiple Spanning Tree Protocol  
 
 ## 802.1D Port States
 * **Disabled**: Administravely off (shut down)
