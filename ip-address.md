@@ -20,3 +20,4 @@ In interface submode
 ## Verification
 <code>show ip interface [brief | <em>interface-id</em> | vlan <em>vlan-id</em></code>  
 <code>show ipv6 interface [brief | <em>interface-id</em> | vlan <em>vlan-id</em></code>  
+
