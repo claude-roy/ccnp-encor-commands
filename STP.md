@@ -72,6 +72,23 @@ Logic of selection criterion
 4. Specify the MST version number : in mst configuration submode <code>revision <em>version</em></code>  
 5. (Optional) Define the MST region name : <code>name <em>mst-region-name</em></code>
 
+## RSTP - 802.1W
+### RSTP Port States
+* **Discarding**: port is enabled but is not forwarding any traffic (801.D disabled, blocking and listening states).  
+* **Learning**: modifies the MAC addess table, does not forward any traffic besides BPDUs.  
+* **Forwarding**: forward traffic and update MAC address table.  
+
+### RSTP Port Roles
+* **Root port (RP)**: port connected to the root switch or lowest cost to root. One root port per VLAN.
+* **Disagned port (DP)**: port receives and forwards frames to other switches. One active DP on a lonk.  
+* **Alternate port**: provides alternate connectivity toward root switch.  
+* **Backup port**: provides redundancy toward the current root switch. A backup port exists only when multiple link connect between the same switches.  
+
+### RSTP Port Types  
+* **Edge port**: where hosts connect. Direcly correlat to port that have STP portfast enabled.  
+* **Root port**: best path cost toward the root bridge.  
+* **Point-to-point port**: any port that connects to another RSTP switch with full duplex.  
+
 ## STP commands
 
 
