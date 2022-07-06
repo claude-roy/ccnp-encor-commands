@@ -104,6 +104,35 @@ Forward timer can be between 4 and 30 seconds.
 In global configuration mode  
 <code>spanning-tree pathcost method long</code>  
 
+### STP Tuning
+<code>spanning-tree vlan<em>vlan-id</em> priority <em>priority</em></code>  
+priority is between 0 and 61,440, in increments of 4,096.  
+<code>spanning-tree vlan <em>vlan-id</em> root {pirmary | secondary} [diameter <em>diameter</em>]</code>  
+primary = 24,576 or 4,096 lower then the priority of the root.  
+secondary = 28,672.  
+In interface configuration mode  
+<code>spanning-tree [vlan <em>vlan-id</em>] cost <em>cost</em></code>  
+<code>spanning-tree [vlan <em>vlan-id</em>] port-priority <em>priority</em></code>  
+
+### STP Protection Mechanisms
+In interface configuration mode  
+<code>spanning-tree guard root</code>  
+<code>spanning-tree portfast</code>  
+<code>spanning-tree portfast disable</code> ! Use when portfat is enable globally  
+<code>spanning-tree portfast trunk</code>  ! Use on trunk link connected to a sigle host  
+<code>spanning-tree bpduguard {enable | disable}</code>  
+<code>spanning-tree bpdufilter enable</code> ! Prevents the STP port from sending or receiving BPDUs.  
+  
+In global configuration mode  
+<code>spanning-tree portfast default</code>  
+<code>spanning-tree portfast bpduguard default</code>  
+<code>errdisable recovery cause bpduguard</code>  ! Automatic recover from bpduguard errdisable  
+<code>errdisable recovery interval <em>time-seconds</em></code>  ! Period to check for Error Recovery : 5 to 86,400 seconds
+<code>spanning-tree portfast bpdufilter default</code>  
+* The port sends a series of 10 to 12 BPDUs at link-up before the switch begins to filter outbound BPDUs.  
+* If a BPDU is received on a Port Fast-enabled STP port, the interface loses its Port Fast-operational status, and BPDU filtering is disabled.
+
+
 ### MST
 <code>spanning-tree mode mst</code>  
 <code>spanning-tree mst <em>instance-number</em> priority <em>priority</em></code>  
@@ -112,7 +141,7 @@ In global configuration mode
 <code>instance <em>instance-number</em> vlan <em>vlan-id</em></code>  
 <code>revision <em>version</em></code>  
 <code>name <em>mst-region-name</em></code>  
-In interface configuration mode
+In interface configuration mode  
 <code>spanning-tree mst <em>instance-number</em> cost <em>cost</em></code>  
 <code>spanning-tree mst <em>instance-number</em> port-priority <em>priority</em></code>  
 
@@ -125,3 +154,4 @@ In interface configuration mode
 <code>show spanning-tree mst</code>  
 <code>show spanning-tree mst [<em>instance-number</em>]</code>
 <code>show spanning-tree mst interface [<em>interface-id</em>]</code>  
+<code>show interfaces status</code>
