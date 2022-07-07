@@ -113,6 +113,7 @@ secondary = 28,672.
 In interface configuration mode  
 <code>spanning-tree [vlan <em>vlan-id</em>] cost <em>cost</em></code>  
 <code>spanning-tree [vlan <em>vlan-id</em>] port-priority <em>priority</em></code>  
+The port priority can be any value between 0 and 240, in increments of 16.  
 
 ### STP Protection Mechanisms
 In interface configuration mode  
