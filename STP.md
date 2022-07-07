@@ -123,6 +123,7 @@ In interface configuration mode
 <code>spanning-tree portfast trunk</code>  ! Use on trunk link connected to a sigle host  
 <code>spanning-tree bpduguard {enable | disable}</code>  
 <code>spanning-tree bpdufilter enable</code> ! Prevents the STP port from sending or receiving BPDUs.  
+<code>switchport host</code> ! Enables portfast, but also statically sets the interface mode to access and disables aggregation protocols.  
   
 In global configuration mode  
 <code>spanning-tree portfast default</code>  
