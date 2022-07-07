@@ -24,10 +24,12 @@ RIB Routing Information Base
 RP route processor  
 RSTP Rapid Spanning Tree  
 SDM Switching Database Manager  
+SFP small form-factor pluggable  
 SSO Stateful switchover  
 TCAM Ternary Content Addressable Memory  
 TCI Tag Control Information  
 ToS Type of Service  
 TPID Tag Protocol Identifier  
+UDLD Unidirectional Link Detection  
 VMR Value, Mask, Result
 

@@ -130,7 +130,19 @@ In global configuration mode
 <code>errdisable recovery interval <em>time-seconds</em></code>  ! Period to check for Error Recovery : 5 to 86,400 seconds
 <code>spanning-tree portfast bpdufilter default</code>  
 * The port sends a series of 10 to 12 BPDUs at link-up before the switch begins to filter outbound BPDUs.  
-* If a BPDU is received on a Port Fast-enabled STP port, the interface loses its Port Fast-operational status, and BPDU filtering is disabled.
+* If a BPDU is received on a Port Fast-enabled STP port, the interface loses its Port Fast-operational status, and BPDU filtering is disabled.  
+
+#### Unidirectional Links
+In global configuration
+<code>spanning-tree loopguard default</code>  
+<code>udld enable [aggressive]</code> ! Enables on any SFP-based port.  
+UDLD must be enabled on the remote switch as well.  
+<code>udld recovery [interval <em>time</em>]</code> ! Default time is 5 min.  
+
+In interface configuration mode  
+<code>spanning-tree guard loop</code>  
+<code>udld port [aggresive]</code>  
+<code>udld port disable</code> ! disable on port when enable globally.  
 
 
 ### MST
@@ -155,3 +167,5 @@ In interface configuration mode
 <code>show spanning-tree mst [<em>instance-number</em>]</code>
 <code>show spanning-tree mst interface [<em>interface-id</em>]</code>  
 <code>show interfaces status</code>
+<code>show udld neighbors</code>  
+<code>show udld <em>interface-id</em></code>  
