@@ -1,6 +1,7 @@
 # Acronym used
 AF Assured Forwarding  
 ARP Address Resolution Protocol  
+AS Autonomous System  
 ASIC application-specific integrated circuits  
 BA Behavior Aggregates  
 Bc Committed Burst Size  
@@ -21,6 +22,8 @@ EF Expedited Forwarding
 EXP MPLS Experimental  
 FIB Forwarding Information Base  
 FIFO First-in, first-out  
+IANA Internet Assogned Numbers Authority  
+IGP Interior Gateway protocol  
 IPP IP Precedence  
 LLQ Low-latency queuing
 MQC Modular QoS CLI   
