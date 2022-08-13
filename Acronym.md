@@ -29,6 +29,8 @@ LLQ Low-latency queuing
 MQC Modular QoS CLI   
 MST Multiple Spanning Tree Protocol  
 NBAR Network-Based Application Recognition  
+NLRI Network Layer Reachability Information  
+PA BGP Path Attributes  
 PCP Priority Code Point  
 PIR Peak Information Rate  
 PQ Priority queuing  
