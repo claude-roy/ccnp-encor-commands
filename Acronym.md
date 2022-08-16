@@ -25,6 +25,7 @@ EF Expedited Forwarding
 EXP MPLS Experimental  
 FIB Forwarding Information Base  
 FIFO First-in, first-out  
+FSM finite-state machine  
 IANA Internet Assogned Numbers Authority  
 iBGP Internal BGP  
 IGP Interior Gateway protocol  

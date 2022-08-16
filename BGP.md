@@ -62,4 +62,46 @@ Type | Name         | Functional Overview|
 - UPDATE: advertises feasible routes, withdraws previously advertised routes, or can do both. Include NLRI, such as the prefix and associate BGP PAs when advertising prefixes. Withdrawn NLRI include only the prefix. Can act as a keepalive.
 - NOTICATION: sen when an error is detected with the BGP session (hold timer expiring, neighbor capabilities changing, or BGP session reset being requested). Cause the BGP session to close.
 
-- BGP identifier: BGP RI is a 32-bit unique number. Can be set manually or dynamically by BGP.
+- BGP identifier: BGP RI is a 32-bit unique number. Can be set manually or dynamically by BGP.  
+
+#### BGP Neighbor States
+BGP uses hte finite-state machine (MSF) to maintain a table of all BGP peers and their operational status.
+##### BGP session states
+- Idle
+- Connect
+- Active
+- OpenSent
+- OpenConfirm
+- Established
+
+### BGP Basic Configuration
+BGP router configuration require the following components:  
+
+- BGP session paramaters  
+- Address family initialization  
+- Activate the address family on the BGP peer
+
+Initialize the BGP process in global configuration  
+<code>router bgp <em>as-number</em></code>  
+#### RID
+1. Statically define router ID (RID)
+2. Highest IP address of any up loopback interfaces.
+3. Highest IP address of any up interfaces.
+
+Configure static RID in router mode
+<code>bgp router-id <em>router-id</em></code>  
+Identify BGP neighbor's IP address and AS in router mode  
+<code>neighbor <em>ip-address</em> remote-as <em>as-number</em></code>  
+
+IOS activates the IPv4 address family by default and the safi is unicast by default.   
+To disables automatic activation of IPv4 AFI  
+<code>no bgp default ipv4-unicast</code>  
+If IPv4 AFI is disable, initialize IPv4 address family in router mode
+<code>address-family <em>afi safi</em></code>  
+afi = IPV4 or IPV6  
+safi = unicast or multicast  
+
+**Verification**  
+<code>show bgp <em>afi safi</em> summary</code>  
+<code>show bgp <em>afi safi</em> neighbors <em>ip-address</em></code>  
+
