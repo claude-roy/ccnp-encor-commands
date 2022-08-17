@@ -105,3 +105,31 @@ safi = unicast or multicast
 <code>show bgp <em>afi safi</em> summary</code>  
 <code>show bgp <em>afi safi</em> neighbors <em>ip-address</em></code>  
 
+#### Prefix Advertisement
+BGP <code>network</code> statements identify specific network prfixes to be installed into the BGP table, know as the <em>Loc-Rib table</em>.  
+The `network` statement must match a prefix in the global RIB.  
+
+BGP APs are set, depending on the RIB prefix type :  
+
+- **Connected network**
+	- next-hop BGP attribute set to 0.0.0.0
+	- BGP origin attribute set to i (IGP)
+	- BGP weight set to 32,768
+- **Static route or routing protocol**
+	- next-hop attribute set to the next-hop IP address int the RIB
+	- BGP origin attribute set to i (IGP)
+	- BGP weight set to 32,768
+	- MED set to IGP metric
+
+For advertisement to BGP peers, all routes in the Loc-RIB table must use the following process.
+
+- **Step 1**
+	- Pass a validity check. Verify NRLI is valid and that the next-hop address is resolvable in the global RIB. If NLRI fails, NRLI remains but does not process further.
+- **Step 2**
+	- Process outbound neighbor route policies. After processing, if route is was not denied by the outbound policies, the route is maintained in the Adj-RIB-Out table for later reference.
+- **Step 3** 
+	- Advertise NLRI to BGP peers. If NLRI's next-hop BGP PA is 0.0.0.0, then the next-hop address is changed to the IP address of the BGP session.
+
+Advertising IPv4 network  
+<code>network <em>network</em> mask <em>subnet-mask</em> [route-map <em>route-map-name</em>]</code>  
+`route-map` provide a method of setting specific BGP PAs when the prfix installs into the Loc-RIB table.
