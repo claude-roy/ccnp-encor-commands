@@ -74,7 +74,13 @@ BGP uses hte finite-state machine (MSF) to maintain a table of all BGP peers and
 - OpenConfirm
 - Established
 
-### BGP tables for maintenaing 
+### BGP tables for maintening network prefix and path attributes
+- **Adj-RIB-In**: Contains NLRIs in original form. To save memory, the table is purged after all route policies ar processed.
+- **Loc-RIB**: Contains all the NLRIs that originated locally or were received from other BGP peers. It is the table used for presneting routes to the IP ruting table.
+- **Adj-RIB-Out**: Contains the NLRIs after outbound route policies have been processed.
+
+Not every prefix in the Loc-RIB table is advertised to a BGP peer or installed into the global RIB when received from a BGP peer.  
+
 ### BGP Basic Configuration
 BGP router configuration require the following components:  
 
@@ -103,8 +109,16 @@ afi = IPV4 or IPV6
 safi = unicast or multicast  
 
 **Verification**  
+Display content of the BGP database (LoC-RIB)  
+<code>show bgp <em>afi safi</em></code>  
+<code>show bgp <em>afi safi</em> detail</code>  
 <code>show bgp <em>afi safi</em> summary</code>  
 <code>show bgp <em>afi safi</em> neighbors <em>ip-address</em></code>  
+Displays all the paths for a specific route and the BGP attributes for that path  
+<code>show bgp <em>afi safi network</em></code>  
+Displays the content of the Adj-RIB-Out table for a neighbor  
+<code>show bgp <em>afi safi</em> neighbor <em>ip-address</em> advertised routes</code>  
+<code>show ip route bgp</code>  
 
 #### Prefix Advertisement
 BGP <code>network</code> statements identify specific network prfixes to be installed into the BGP table, know as the <em>Loc-Rib table</em>.  
@@ -134,3 +148,21 @@ For advertisement to BGP peers, all routes in the Loc-RIB table must use the fol
 Advertising IPv4 network  
 <code>network <em>network</em> mask <em>subnet-mask</em> [route-map <em>route-map-name</em>]</code>  
 `route-map` provide a method of setting specific BGP PAs when the prfix installs into the Loc-RIB table.
+
+#### Aggregate Address
+Two techniques  
+- **Static**: Create a static route to Null0 for the summary network prefix and then advertise the prefix with a **network** statement.  
+- **Dynamic**: Configure an aggregation network prefix with the command below.  
+
+<code>aggregate-address <em>network subnet-mask</em> [summary-only] [as-set]</code>  
+
+#### MP-BGP for IPv6
+All the configuration rules apply.  
+The IPv6 address family must be initialized, and the neighbor is activated.  
+Router with only IPv6 must statically define the BGP RID.  
+To shutdown the IPv4 address family:  
+<code>no bgp default ipv4-unicast</code>  
+**Verification**  
+<code>show bgp ipv6 unicast neighbors <em>ip-address</em> [detail]</code>  
+<code>show bgp ipv6 unicast summary</code>  
+<code>show bgp ipv6 unicast <em>prefix/prefix-length</em></code>  
