@@ -74,6 +74,7 @@ BGP uses hte finite-state machine (MSF) to maintain a table of all BGP peers and
 - OpenConfirm
 - Established
 
+### BGP tables for maintenaing 
 ### BGP Basic Configuration
 BGP router configuration require the following components:  
 
